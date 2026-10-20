@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<!-- saved from url=(0073)file:///C:/Users/craigk/Downloads/Race_to_the_Queen_City_Standings_4.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Race to the Queen City Standings</title><style>
+:root { --font-anthropic-sans: Arial, Helvetica, sans-serif; --font-anthropic-serif: Arial, Helvetica, sans-serif;
+  --color-fg: #111111; --color-fg-muted: #555555; --color-bg: #ffffff; --color-panel: #ffffff; --color-border-line: #d5dbe5;
+  --color-ok: #3a7d44; --color-bad: #c00000; --cds-radius: 6px; --cds-gap-xs: 4px; --cds-gap-sm: 8px; --cds-gap-md: 12px; --cds-gap-lg: 16px;
+  --cds-pad-xs: 4px; --cds-pad-sm: 8px; --cds-pad-md: 12px; --cds-pad-lg: 16px; --cds-font-size-caption: 12px; --cds-font-size-body: 14px;
+  --cds-font-size-heading: 16px; --cds-font-size-title: 26px; --cds-font-weight-medium: 600;
+  --cds-surface-popover: #ffffff; --cds-border: #c9d1db; --cds-shadow-popover: 0 4px 14px rgba(0,0,0,.15); --cds-text-secondary: #5b6676; color-scheme: light; }
+html, body { margin: 0; background: #f3f5f8; color: #111111; font-family: Arial, Helvetica, sans-serif; }
+#dash-root { padding: 20px max(16px, env(safe-area-inset-left, 0px)) 32px; }
+[hidden] { display: none !important; }
+.dash-skeleton { color: transparent; background: #e6eaef; border-radius: 4px; }
+.rt-head h1 { font-weight: 700; }
+#asof-note { font-size: 12px; color: #555555; margin: 2px 0 0; }
+.rt-print { order: 99; margin-left: auto; align-self: end; font: inherit; font-size: 14px; font-weight: 700; color: #ffffff; background: #156082; border: 1px solid #0a4a68; border-radius: 6px; padding: 8px 16px; cursor: pointer; }
+.rt-print:hover { background: #0f4e6b; } .rt-print:focus-visible { outline: 2px solid #111111; outline-offset: 2px; }
+@media print {
+  @page { size: letter portrait; margin: 0.35in; }
+  html, body { background: #ffffff !important; }
+  #dash-root { padding: 0 !important; zoom: 0.86; }
+  .rt-controls, .rt-take, .rt-tip { display: none !important; }
+  .rt-head h1 { font-size: 16px !important; margin: 0 !important; } #asof-note { margin: 0 0 6px !important; }
+  .rc { border: 0 !important; padding: 0 !important; gap: 6px !important; }
+  .rt-track, .rc .rt-track { min-width: 0 !important; }
+  .rt-trackbox { overflow: visible !important; }
+  .rc-win { font-size: 30px !important; } .rc-race { font-size: 18px !important; } .rc-status { font-size: 14px !important; }
+  .rc-t .v { font-size: 24px !important; } .rc table { font-size: 11px !important; } .rc table td, .rc table th { padding: 3px 6px !important; }
+  .rc-rules { font-size: 11px !important; } .rc-prizes div { font-size: 12px !important; }
+  .rc-two { grid-template-columns: 1fr 1fr !important; }
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  .rc-two { gap: 10px !important; } .rt-track svg { max-height: 3.4in; } .rc-tiles { gap: 6px !important; }
+}
+</style><script>
+window.d3 = { format: (f) => { const o = f === ',.2f' ? {minimumFractionDigits: 2, maximumFractionDigits: 2} : f === '$,.0f' ? {style: 'currency', currency: 'USD', maximumFractionDigits: 0} : {maximumFractionDigits: 0};
+  const nf = new Intl.NumberFormat('en-US', o); return (x) => nf.format(x); } };
+window.__D = {"baselines": [{"branch": "Austell, GA", "region": "Southeast", "baseline_316": "0.3287"}, {"branch": "Austin, TX", "region": "Central", "baseline_316": "0.0"}, {"branch": "Bessemer, AL", "region": "Southeast", "baseline_316": "0.0"}, {"branch": "Bridgeton, MO", "region": "Central", "baseline_316": "0.3426"}, {"branch": "Brooklyn Heights, OH", "region": "Central", "baseline_316": "0.287"}, {"branch": "Brooklyn Park, MN", "region": "Central", "baseline_316": "0.0"}, {"branch": "Calgary, AB", "region": "Canada", "baseline_316": "0.1111"}, {"branch": "Cedar Rapids, IA", "region": "Central", "baseline_316": "0.0"}, {"branch": "Charlotte, NC", "region": "Southeast", "baseline_316": "0.1296"}, {"branch": "Cincinnati, OH", "region": "Central", "baseline_316": "0.1452"}, {"branch": "Coppell (Retail), TX", "region": "Central", "baseline_316": "0.0"}, {"branch": "Coppell, TX", "region": "Central", "baseline_316": "0.4028"}, {"branch": "Dartmouth, NS", "region": "Canada", "baseline_316": "0.0"}, {"branch": "Denver, CO", "region": "West", "baseline_316": "0.0"}, {"branch": "Detroit, MI", "region": "Central", "baseline_316": "0.0"}, {"branch": "Dorval, QC", "region": "Canada", "baseline_316": "0.0"}, {"branch": "Edmonton, AB", "region": "Canada", "baseline_316": "0.0"}, {"branch": "Freedom, PA", "region": "Northeast", "baseline_316": "0.0278"}, {"branch": "Fresno (Retail), CA", "region": "West", "baseline_316": "0.0"}, {"branch": "Fresno, CA", "region": "West", "baseline_316": "0.0"}, {"branch": "Harahan, LA", "region": "Central", "baseline_316": "0.0"}, {"branch": "Hicksville, NY", "region": "Northeast", "baseline_316": "0.0"}, {"branch": "Houston, TX", "region": "Central", "baseline_316": "0.0"}, {"branch": "Indianapolis, IN", "region": "Central", "baseline_316": "0.1111"}, {"branch": "Jessup, MD", "region": "Northeast", "baseline_316": "0.0"}, {"branch": "Kalamazoo, MI", "region": "Central", "baseline_316": "0.0"}, {"branch": "Knoxville, TN", "region": "Southeast", "baseline_316": "0.0"}, {"branch": "Largo, FL", "region": "Southeast", "baseline_316": "0.0"}, {"branch": "Las Vegas, NV", "region": "West", "baseline_316": "0.0"}, {"branch": "Lehigh Valley, PA", "region": "Northeast", "baseline_316": "0.0"}, {"branch": "Manchester, NH", "region": "Northeast", "baseline_316": "0.0"}, {"branch": "Maumee, OH", "region": "Central", "baseline_316": "0.0"}, {"branch": "Menomonee Falls, WI", "region": "Central", "baseline_316": "0.0"}, {"branch": "Miramar, FL", "region": "Southeast", "baseline_316": "0.0"}, {"branch": "N Charleston, SC", "region": "Southeast", "baseline_316": "0.0"}, {"branch": "N Kingstown, RI", "region": "Northeast", "baseline_316": "0.0"}, {"branch": "Naperville, IL", "region": "Central", "baseline_316": "0.0"}, {"branch": "Orlando, FL", "region": "Southeast", "baseline_316": "0.0"}, {"branch": "Phoenix, AZ", "region": "West", "baseline_316": "0.3361"}, {"branch": "Pitt Meadows, BC", "region": "Canada", "baseline_316": "0.0"}, {"branch": "Raleigh, NC", "region": "Southeast", "baseline_316": "0.0"}, {"branch": "Richmond, VA", "region": "Southeast", "baseline_316": "0.0"}, {"branch": "Riverside, MO", "region": "Central", "baseline_316": "0.0"}, {"branch": "Rochester, NY", "region": "Northeast", "baseline_316": "0.0"}, {"branch": "Salt Lake City, UT", "region": "West", "baseline_316": "0.5555"}, {"branch": "San Diego, CA", "region": "West", "baseline_316": "0.0"}, {"branch": "Santa Fe Springs, CA", "region": "West", "baseline_316": "0.1111"}, {"branch": "Seattle, WA", "region": "West", "baseline_316": "0.0"}, {"branch": "Syracuse, NY", "region": "Northeast", "baseline_316": "0.0"}, {"branch": "Trevose, PA", "region": "Northeast", "baseline_316": "0.0278"}, {"branch": "Tulsa, OK", "region": "Central", "baseline_316": "0.0"}, {"branch": "Tyngsboro, MA", "region": "Northeast", "baseline_316": "0.0"}, {"branch": "Vaughan, ON", "region": "Canada", "baseline_316": "0.0185"}, {"branch": "Winchester, KY", "region": "Southeast", "baseline_316": "0.0"}, {"branch": "Winnipeg, MB", "region": "Canada", "baseline_316": "0.0"}], "november": []};
+window.dash = { _c: {}, _cache: {}, _p: {field: 'All branches', branch: ''}, colors: [], fns: [],
+  calc(id, o) { this._c[id] = o; }, loader() {}, setLink() {}, refresh() {}, resetParams() {},
+  params() { return this._p; }, setParams(x) { Object.assign(this._p, x); this.fns.forEach((f) => f()); },
+  onData(fn) { this.fns.push(fn); },
+  data(id) { if (__D[id]) return { status: 'ok', data: __D[id] };
+    if (this._c[id]) { if (!this._cache[id]) this._cache[id] = this._c[id].fn(...this._c[id].inputs.map((i) => this.data(i).data)); return { status: 'ok', data: this._cache[id] }; }
+    return { status: 'missing', data: [] }; } };
+</script></head><body><div id="dash-root"><style>
+#dash-root { --dash-gutter: clamp(16px, 3vw, 32px); }
+.rt [hidden], .rt[hidden] { display: none !important; }
+.rt { font-family: var(--font-anthropic-sans); display: grid; gap: var(--cds-gap-lg); max-width: 1280px; margin-inline: auto; }
+.rt-head h1 { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0; text-wrap: balance; }
+.rt-take { color: var(--color-fg-muted); margin: 4px 0 0; max-width: 75ch; }
+.rt-take b { color: var(--color-fg); font-weight: 600; }
+.rt-controls { display: flex; flex-wrap: wrap; gap: var(--cds-gap-md); align-items: end; }
+.rt-ctl { display: grid; gap: 4px; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); min-width: 0; }
+.rt-ctl select { font: inherit; font-size: var(--cds-font-size-body); color: var(--color-fg); background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: 6px 8px; max-width: 100%; }
+.rt-seg { display: inline-flex; flex-wrap: wrap; border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); overflow: hidden; }
+.rt-seg button { font: inherit; font-size: var(--cds-font-size-body); background: var(--color-panel); color: var(--color-fg); border: 0; padding: 6px 12px; cursor: pointer; }
+.rt-seg button + button { border-left: 1px solid var(--color-border-line); }
+.rt-seg button[aria-pressed="true"] { background: var(--color-fg); color: var(--color-bg); }
+.rt button:focus-visible, .rt select:focus-visible { outline: 2px solid var(--color-fg); outline-offset: 2px; }
+.rt-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr)); gap: var(--cds-gap-md); }
+.rt-kpi { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-md); display: grid; gap: 2px; }
+.rt-lab { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); text-transform: uppercase; letter-spacing: .06em; }
+.rt-val { font-family: var(--font-anthropic-serif); font-size: calc(var(--cds-font-size-title) * 1.2); line-height: 1.1; font-variant-numeric: tabular-nums; }
+.rt-note { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.rt-card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); display: grid; gap: var(--cds-gap-sm); min-width: 0; }
+.rt-card h2 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0; }
+.rt-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr)); gap: var(--cds-gap-md); }
+.rt-trackbox { position: relative; overflow-x: auto; }
+.rt-track { min-width: 640px; background: #ffffff; border-radius: var(--cds-radius); }
+.rt-track .rq-car { cursor: pointer; }
+.rt-tip { position: absolute; pointer-events: none; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); padding: var(--cds-pad-xs) var(--cds-pad-sm); font-size: var(--cds-font-size-caption); white-space: nowrap; z-index: 2; }
+.rt-tip .d { color: var(--cds-text-secondary); }
+.rt-sample { background: #fff2cc; color: #5c4400; border: 1px solid #e0c060; border-radius: var(--cds-radius); padding: 6px 12px; font-size: var(--cds-font-size-body); font-weight: 600; }
+.rt-scroll { overflow: auto; max-height: 36rem; }
+.rt table { border-collapse: collapse; width: 100%; font-size: var(--cds-font-size-body); font-variant-numeric: tabular-nums; }
+.rt th, .rt td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-line); text-align: right; white-space: nowrap; }
+.rt th.l, .rt td.l { text-align: left; }
+.rt th { position: sticky; top: 0; background: var(--color-panel); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); font-weight: 500; }
+.rt tr.on td { font-weight: 700; }
+.rt tr.on td:first-child { box-shadow: inset 3px 0 0 var(--color-fg); }
+.rt tbody tr { cursor: pointer; }
+.rt-pill { display: inline-block; min-width: 1.6em; padding: 0 6px; border-radius: 999px; font-size: var(--cds-font-size-caption); text-align: center; border: 1px solid var(--color-border-line); }
+.rt-pill.ok { color: var(--color-ok); border-color: currentColor; }
+[data-dash-source-state=empty] { color: transparent; }
+[data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
+/* customer sheet: fixed flyer look */
+.rc { --b3a: #215f9a; --teal: #156082; --race: #5a7d51; --gold: #ffc000; background: #ffffff; color: #000000; font-family: Arial, Helvetica, sans-serif; border: 1px solid #d9d9d9; border-radius: 6px; padding: clamp(16px, 3vw, 28px); display: grid; gap: 14px; color-scheme: light; }
+.rc-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px; }
+.rc-win { font-size: clamp(28px, 4.5vw, 42px); font-weight: 700; line-height: 1; }
+.rc-win span { color: var(--b3a); }
+.rc-dates { font-size: 15px; margin-top: 6px; padding-left: 10px; }
+.rc-right { text-align: right; margin-left: auto; }
+.rc-co { font-size: 12px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: #3d3d3d; }
+.rc-race { font-weight: 900; font-style: italic; font-size: clamp(18px, 2.8vw, 26px); line-height: 1.15; margin-top: 4px; }
+.rc-flag { height: 14px; background-image: repeating-conic-gradient(#000000 0 25%, #ffffff 0 50%); background-size: 14px 14px; border-block: 1px solid #000000; }
+.rc-ban { background: linear-gradient(180deg, #1a6c92 0%, var(--teal) 45%, #09597d 100%); color: #ffffff; font-weight: 700; padding: 8px 14px; border: 1px solid #0a4a68; }
+.rc-branch { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 18px; }
+.rc-branch small { font-size: 12px; font-weight: 400; }
+.rc-status { font-size: 17px; margin: 0; line-height: 1.35; }
+.rc-status b { color: var(--b3a); }
+.rc-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr)); gap: 10px; }
+.rc-t { border: 1.5px solid var(--race); border-radius: 4px; overflow: hidden; text-align: center; display: grid; align-content: start; }
+.rc-t .lab { background: var(--race); color: #ffffff; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 4px 8px; }
+.rc-t .v { font-size: 32px; font-weight: 700; color: var(--race); padding: 6px 4px 0; font-variant-numeric: tabular-nums; }
+.rc-t .n { font-size: 12px; color: #4a4a4a; padding: 0 8px 8px; }
+.rc-t.b { border-color: var(--teal); } .rc-t.b .lab { background: var(--teal); } .rc-t.b .v { color: var(--b3a); }
+.rc-two { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: 14px; align-items: start; }
+.rc-sec { font-size: 13px; font-weight: 700; margin: 0 0 5px; }
+.rc table { font-size: 13px; }
+.rc th { position: static; background: var(--teal); color: #ffffff; font-weight: 700; }
+.rc td { border-bottom: 1px solid #d5dee6; color: #000000; }
+.rc tr.on td { background: #e3edf6; color: var(--b3a); }
+.rc-prizes { display: grid; gap: 6px; }
+.rc-prizes div { display: flex; justify-content: space-between; gap: 8px; font-size: 15px; }
+.rc-prizes div.rc-all { border-top: 1px solid rgba(255,255,255,.45); padding-top: 6px; margin-top: 2px; color: #ffc000; font-size: 14px; }
+.rc-rules { border: 2px solid var(--teal); padding: 8px 12px; font-size: 13px; line-height: 1.35; }
+.rc-rules ul { margin: 4px 0 0; padding-left: 1.2em; display: grid; gap: 2px; }
+.rc-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 12px; color: #333333; border-top: 1px solid #cccccc; padding-top: 6px; }
+.rc .rt-track { min-width: 600px; }
+</style>
+
+<div class="rt">
+  <header class="rt-head" id="top">
+    <h1>Race to the Queen City: standings</h1>
+    <p id="asof-note">Standings as of October 20, 2026 · 3A Composites</p>
+    <p class="rt-take" id="takeaway">55 Polymershapes branches are on the grid. The race starts Nov 1; each branch starts from its own Jan–Sep 2025 baseline. Pick your branch above to see where you stand.</p>
+  </header>
+
+  <div class="rt-controls">
+    <button type="button" id="print-btn" class="rt-print">Save as PDF</button>
+    <label class="rt-ctl">Your branch<select id="sel-branch" data-source="baselines"><option value="Austell, GA">Austell, GA</option><option value="Austin, TX">Austin, TX</option><option value="Bessemer, AL">Bessemer, AL</option><option value="Bridgeton, MO">Bridgeton, MO</option><option value="Brooklyn Heights, OH">Brooklyn Heights, OH</option><option value="Brooklyn Park, MN">Brooklyn Park, MN</option><option value="Calgary, AB">Calgary, AB</option><option value="Cedar Rapids, IA">Cedar Rapids, IA</option><option value="Charlotte, NC">Charlotte, NC</option><option value="Cincinnati, OH">Cincinnati, OH</option><option value="Coppell (Retail), TX">Coppell (Retail), TX</option><option value="Coppell, TX">Coppell, TX</option><option value="Dartmouth, NS">Dartmouth, NS</option><option value="Denver, CO">Denver, CO</option><option value="Detroit, MI">Detroit, MI</option><option value="Dorval, QC">Dorval, QC</option><option value="Edmonton, AB">Edmonton, AB</option><option value="Freedom, PA">Freedom, PA</option><option value="Fresno (Retail), CA">Fresno (Retail), CA</option><option value="Fresno, CA">Fresno, CA</option><option value="Harahan, LA">Harahan, LA</option><option value="Hicksville, NY">Hicksville, NY</option><option value="Houston, TX">Houston, TX</option><option value="Indianapolis, IN">Indianapolis, IN</option><option value="Jessup, MD">Jessup, MD</option><option value="Kalamazoo, MI">Kalamazoo, MI</option><option value="Knoxville, TN">Knoxville, TN</option><option value="Largo, FL">Largo, FL</option><option value="Las Vegas, NV">Las Vegas, NV</option><option value="Lehigh Valley, PA">Lehigh Valley, PA</option><option value="Manchester, NH">Manchester, NH</option><option value="Maumee, OH">Maumee, OH</option><option value="Menomonee Falls, WI">Menomonee Falls, WI</option><option value="Miramar, FL">Miramar, FL</option><option value="N Charleston, SC">N Charleston, SC</option><option value="N Kingstown, RI">N Kingstown, RI</option><option value="Naperville, IL">Naperville, IL</option><option value="Orlando, FL">Orlando, FL</option><option value="Phoenix, AZ">Phoenix, AZ</option><option value="Pitt Meadows, BC">Pitt Meadows, BC</option><option value="Raleigh, NC">Raleigh, NC</option><option value="Richmond, VA">Richmond, VA</option><option value="Riverside, MO">Riverside, MO</option><option value="Rochester, NY">Rochester, NY</option><option value="Salt Lake City, UT">Salt Lake City, UT</option><option value="San Diego, CA">San Diego, CA</option><option value="Santa Fe Springs, CA">Santa Fe Springs, CA</option><option value="Seattle, WA">Seattle, WA</option><option value="Syracuse, NY">Syracuse, NY</option><option value="Trevose, PA">Trevose, PA</option><option value="Tulsa, OK">Tulsa, OK</option><option value="Tyngsboro, MA">Tyngsboro, MA</option><option value="Vaughan, ON">Vaughan, ON</option><option value="Winchester, KY">Winchester, KY</option><option value="Winnipeg, MB">Winnipeg, MB</option></select></label>
+    <label class="rt-ctl">On the track<select id="sel-field"><option value="All branches">All branches</option><option value="Top 10">Top 10</option><option value="Northeast">Northeast</option><option value="Southeast">Southeast</option><option value="Central">Central</option><option value="West">West</option><option value="Canada">Canada</option></select></label>
+  </div>
+
+
+  <section id="customer">
+    <article class="rc" id="cust">
+      <div class="rc-top">
+        <div><div class="rc-win">Win with <span>3A</span>:</div><div class="rc-dates">Nov. 1 – Nov. 30, 2026</div></div>
+        <div class="rc-right"><div class="rc-co">Polymershapes · 3A Composites</div><div class="rc-race">Race to the Queen City<br>with GP APEX™</div></div>
+      </div>
+      <div class="rc-flag" aria-hidden="true"></div>
+      <div class="rc-ban rc-branch"><span id="c-branch">Charlotte, NC</span><small id="c-field">All branches</small></div>
+      <p class="rc-status" id="c-status">Your starting line is <b data-field="start_line" data-source="race" data-where="key=Charlotte, NC">3.13</b> pallets of 3/16" GP APEX™ in November. Cross it to earn your first race point and a $500 credit on your next order.</p>
+      <div class="rt-trackbox"><div class="rt-track" id="c-track" data-source="race"><svg viewBox="0 0 1300 620" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Race standings track" font-family="Arial, Helvetica, sans-serif"><defs><pattern id="rqchk" width="12" height="12" patternUnits="userSpaceOnUse"><rect width="12" height="12" fill="#fff"></rect><rect width="6" height="6" fill="#111"></rect><rect x="6" y="6" width="6" height="6" fill="#111"></rect></pattern></defs><rect x="188" y="83" width="924" height="444" rx="222" fill="#d9dee3"></rect><rect x="198" y="93" width="904" height="424" rx="212" fill="#3b3f45"></rect><rect x="282" y="177" width="736" height="256" rx="128" fill="#6f9a5f"></rect><rect x="292" y="187" width="716" height="236" rx="118" fill="none" stroke="#5f8a50" stroke-width="2"></rect><rect x="260" y="155" width="780" height="300" rx="150" fill="none" stroke="#ffffff" stroke-opacity=".35" stroke-width="1.5" stroke-dasharray="10 12"></rect><rect x="240" y="135" width="820" height="340" rx="170" fill="none" stroke="#ffffff" stroke-opacity=".35" stroke-width="1.5" stroke-dasharray="10 12"></rect><rect x="220" y="115" width="860" height="380" rx="190" fill="none" stroke="#ffffff" stroke-opacity=".35" stroke-width="1.5" stroke-dasharray="10 12"></rect><rect x="198" y="93" width="904" height="424" rx="212" fill="none" stroke="#ffffff" stroke-width="3"></rect><rect x="282" y="177" width="736" height="256" rx="128" fill="none" stroke="#ffffff" stroke-width="3"></rect><line x1="650.0" y1="433.0" x2="650.0" y2="424.0" stroke="#ffffff" stroke-width="1.5"></line><line x1="846.7" y1="433.0" x2="846.7" y2="424.0" stroke="#ffffff" stroke-width="1.5"></line><text x="846.7" y="417.0" text-anchor="middle" font-size="11" fill="#ffffff" fill-opacity=".9">+1</text><line x1="990.5" y1="384.3" x2="983.4" y2="378.7" stroke="#ffffff" stroke-width="1.5"></line><text x="974.8" y="375.9" text-anchor="middle" font-size="11" fill="#ffffff" fill-opacity=".9">+2</text><line x1="1003.0" y1="244.9" x2="995.0" y2="249.1" stroke="#ffffff" stroke-width="3"></line><line x1="877.2" y1="177.0" x2="877.2" y2="186.0" stroke="#ffffff" stroke-width="1.5"></line><text x="877.2" y="201.0" text-anchor="middle" font-size="11" fill="#ffffff" fill-opacity=".9">+4</text><line x1="680.4" y1="177.0" x2="680.4" y2="186.0" stroke="#ffffff" stroke-width="1.5"></line><text x="680.4" y="201.0" text-anchor="middle" font-size="11" fill="#ffffff" fill-opacity=".9">+5</text><line x1="483.7" y1="177.0" x2="483.7" y2="186.0" stroke="#ffffff" stroke-width="1.5"></line><text x="483.7" y="201.0" text-anchor="middle" font-size="11" fill="#ffffff" fill-opacity=".9">+6</text><line x1="325.2" y1="209.1" x2="331.2" y2="215.8" stroke="#ffffff" stroke-width="1.5"></line><text x="338.5" y="228.1" text-anchor="middle" font-size="11" fill="#ffffff" fill-opacity=".9">+7</text><line x1="288.1" y1="344.1" x2="296.7" y2="341.3" stroke="#ffffff" stroke-width="1.5"></line><text x="307.2" y="342.0" text-anchor="middle" font-size="11" fill="#ffffff" fill-opacity=".9">+8</text><line x1="396.8" y1="432.3" x2="397.7" y2="423.4" stroke="#ffffff" stroke-width="1.5"></line><text x="398.9" y="416.4" text-anchor="middle" font-size="11" fill="#ffffff" fill-opacity=".9">+9</text><line x1="589.2" y1="433.0" x2="589.2" y2="424.0" stroke="#ffffff" stroke-width="1.5"></line><rect x="646" y="433" width="8" height="84" fill="#ffffff"></rect><text x="650" y="419" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">START = baseline</text><g transform="translate(1040.1,225.1) rotate(-118.0)"><rect x="-7" y="-42" width="14" height="84" fill="url(#rqchk)" stroke="#111" stroke-width="1"></rect></g><text x="983.6" y="259.2" text-anchor="middle" font-size="12" font-weight="700" fill="#ffc000">+3 = 1st point + $500</text><path d="M 748.0378354292347 475 l 40 0 m -8 -5 l 8 5 l -8 5" fill="none" stroke="#ffffff" stroke-opacity=".7" stroke-width="2"></path><text x="650" y="275" text-anchor="middle" font-size="34" font-weight="900" font-style="italic" fill="#ffffff">Race to the Queen City</text><text x="650" y="311" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">Green flag drops Nov 1</text><text x="650" y="335" text-anchor="middle" font-size="13" fill="#eef5ea">Every branch starts at its own baseline</text><g class="rq-car" data-branch="Salt Lake City, UT" transform="translate(336.5,424.1)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">55</text></g><g class="rq-car" data-branch="Coppell, TX" transform="translate(330.0,488.3)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">54</text></g><g class="rq-car" data-branch="Bridgeton, MO" transform="translate(354.0,433.3)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">53</text></g><g class="rq-car" data-branch="Phoenix, AZ" transform="translate(356.5,497.7)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">52</text></g><g class="rq-car" data-branch="Austell, GA" transform="translate(372.6,439.9)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">51</text></g><g class="rq-car" data-branch="Brooklyn Heights, OH" transform="translate(384.2,503.3)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">50</text></g><g class="rq-car" data-branch="Cincinnati, OH" transform="translate(391.9,443.8)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">49</text></g><g class="rq-car" data-branch="Santa Fe Springs, CA" transform="translate(412.0,445.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">47</text></g><g class="rq-car" data-branch="Indianapolis, IN" transform="translate(436.0,505.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">46</text></g><g class="rq-car" data-branch="Calgary, AB" transform="translate(436.0,445.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">45</text></g><g class="rq-car" data-branch="Trevose, PA" transform="translate(460.0,505.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">44</text></g><g class="rq-car" data-branch="Freedom, PA" transform="translate(460.0,445.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">43</text></g><g class="rq-car" data-branch="Vaughan, ON" transform="translate(484.0,505.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">42</text></g><g class="rq-car" data-branch="Winnipeg, MB" transform="translate(484.0,445.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">41</text></g><g class="rq-car" data-branch="Winchester, KY" transform="translate(508.0,505.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">40</text></g><g class="rq-car" data-branch="Tyngsboro, MA" transform="translate(508.0,445.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">39</text></g><g class="rq-car" data-branch="Tulsa, OK" transform="translate(532.0,505.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">38</text></g><g class="rq-car" data-branch="Syracuse, NY" transform="translate(532.0,445.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">37</text></g><g class="rq-car" data-branch="Seattle, WA" transform="translate(556.0,505.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">36</text></g><g class="rq-car" data-branch="San Diego, CA" transform="translate(556.0,445.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">35</text></g><g class="rq-car" data-branch="Rochester, NY" transform="translate(580.0,505.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">34</text></g><g class="rq-car" data-branch="Riverside, MO" transform="translate(580.0,445.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">33</text></g><g class="rq-car" data-branch="Richmond, VA" transform="translate(604.0,505.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">32</text></g><g class="rq-car" data-branch="Raleigh, NC" transform="translate(604.0,445.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">31</text></g><g class="rq-car" data-branch="Pitt Meadows, BC" transform="translate(628.0,505.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">30</text></g><g class="rq-car" data-branch="Orlando, FL" transform="translate(628.0,445.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">29</text></g><g class="rq-car" data-branch="Naperville, IL" transform="translate(315.5,458.2)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">28</text></g><g class="rq-car" data-branch="N Kingstown, RI" transform="translate(326.0,441.2)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">27</text></g><g class="rq-car" data-branch="N Charleston, SC" transform="translate(338.0,470.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">26</text></g><g class="rq-car" data-branch="Miramar, FL" transform="translate(346.0,451.6)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">25</text></g><g class="rq-car" data-branch="Menomonee Falls, WI" transform="translate(361.9,478.5)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">24</text></g><g class="rq-car" data-branch="Maumee, OH" transform="translate(367.2,459.2)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">23</text></g><g class="rq-car" data-branch="Manchester, NH" transform="translate(386.8,483.5)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">22</text></g><g class="rq-car" data-branch="Lehigh Valley, PA" transform="translate(389.4,463.7)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">21</text></g><g class="rq-car" data-branch="Las Vegas, NV" transform="translate(412.0,485.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">20</text></g><g class="rq-car" data-branch="Largo, FL" transform="translate(412.0,465.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">19</text></g><g class="rq-car" data-branch="Knoxville, TN" transform="translate(436.0,485.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">18</text></g><g class="rq-car" data-branch="Kalamazoo, MI" transform="translate(436.0,465.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">17</text></g><g class="rq-car" data-branch="Jessup, MD" transform="translate(460.0,485.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">16</text></g><g class="rq-car" data-branch="Houston, TX" transform="translate(460.0,465.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">15</text></g><g class="rq-car" data-branch="Hicksville, NY" transform="translate(484.0,485.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">14</text></g><g class="rq-car" data-branch="Harahan, LA" transform="translate(484.0,465.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">13</text></g><g class="rq-car" data-branch="Fresno, CA" transform="translate(508.0,485.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">12</text></g><g class="rq-car" data-branch="Fresno (Retail), CA" transform="translate(508.0,465.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">11</text></g><g class="rq-car" data-branch="Edmonton, AB" transform="translate(532.0,485.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">10</text></g><g class="rq-car" data-branch="Dorval, QC" transform="translate(532.0,465.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">9</text></g><g class="rq-car" data-branch="Detroit, MI" transform="translate(556.0,485.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">8</text></g><g class="rq-car" data-branch="Denver, CO" transform="translate(556.0,465.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">7</text></g><g class="rq-car" data-branch="Dartmouth, NS" transform="translate(580.0,485.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">6</text></g><g class="rq-car" data-branch="Coppell (Retail), TX" transform="translate(580.0,465.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">5</text></g><g class="rq-car" data-branch="Cedar Rapids, IA" transform="translate(604.0,485.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">4</text></g><g class="rq-car" data-branch="Brooklyn Park, MN" transform="translate(604.0,465.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">3</text></g><g class="rq-car" data-branch="Bessemer, AL" transform="translate(628.0,485.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">2</text></g><g class="rq-car" data-branch="Austin, TX" transform="translate(628.0,465.0)"><circle r="10" fill="#e8eef3" stroke="#156082" stroke-width="1.5"></circle><text y="3.8" text-anchor="middle" font-size="10" font-weight="700" fill="#156082">1</text></g><g class="rq-car" data-branch="Charlotte, NC" transform="translate(412.0,505.0)"><circle r="20" fill="#215f9a" fill-opacity=".25"></circle><circle r="14" fill="#215f9a" stroke="#ffffff" stroke-width="3"></circle><text y="4.5" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">48</text></g><line x1="412.0" y1="505.0" x2="412.0" y2="533.0" stroke="#215f9a" stroke-width="1.6"></line><text x="412.0" y="545.0" text-anchor="middle" font-size="13" font-weight="700" fill="#215f9a" paint-order="stroke" stroke="#ffffff" stroke-width="3">48. Charlotte</text></svg></div><div class="rt-tip" hidden=""></div></div>
+      <div class="rc-tiles">
+        <div class="rc-t b"><span class="lab">Overall position</span><span class="v"><span id="c-hash" hidden="">#</span><span id="c-rank" data-source="race" data-field="rank" data-where="key=Charlotte, NC">–</span></span><span class="n" id="c-rank-n">Standings start Nov 1</span></div>
+        <div class="rc-t"><span class="lab">Race points</span><span class="v" id="c-pts" data-source="race" data-field="points" data-where="key=Charlotte, NC">0</span><span class="n">1 at +3 over baseline, +1 per pallet after</span></div>
+        <div class="rc-t"><span class="lab">Pallets to next point</span><span class="v" id="c-next" data-source="race" data-field="next_pt" data-where="key=Charlotte, NC">3.13</span><span class="n" id="c-next-n">to reach the first race point</span></div>
+      </div>
+      <div class="rc-two">
+        <div>
+          <p class="rc-sec" id="c-top-title">Top 10 standings</p>
+          <table id="c-top" data-source="race" data-row-key="key">
+            <thead><tr><th data-field="rank">#</th><th class="l" data-field="branch">Branch</th><th data-field="over">Over baseline</th><th data-field="points">Pts</th></tr></thead><tbody><tr data-key="Austin, TX"><td>–</td><td class="l">Austin, TX</td><td>+0.00</td><td>0</td></tr><tr data-key="Bessemer, AL"><td>–</td><td class="l">Bessemer, AL</td><td>+0.00</td><td>0</td></tr><tr data-key="Brooklyn Park, MN"><td>–</td><td class="l">Brooklyn Park, MN</td><td>+0.00</td><td>0</td></tr><tr data-key="Cedar Rapids, IA"><td>–</td><td class="l">Cedar Rapids, IA</td><td>+0.00</td><td>0</td></tr><tr data-key="Coppell (Retail), TX"><td>–</td><td class="l">Coppell (Retail), TX</td><td>+0.00</td><td>0</td></tr><tr data-key="Dartmouth, NS"><td>–</td><td class="l">Dartmouth, NS</td><td>+0.00</td><td>0</td></tr><tr data-key="Denver, CO"><td>–</td><td class="l">Denver, CO</td><td>+0.00</td><td>0</td></tr><tr data-key="Detroit, MI"><td>–</td><td class="l">Detroit, MI</td><td>+0.00</td><td>0</td></tr><tr data-key="Dorval, QC"><td>–</td><td class="l">Dorval, QC</td><td>+0.00</td><td>0</td></tr><tr data-key="Edmonton, AB"><td>–</td><td class="l">Edmonton, AB</td><td>+0.00</td><td>0</td></tr><tr data-key="Charlotte, NC" class="on"><td>–</td><td class="l">Charlotte, NC</td><td>-0.13</td><td>0</td></tr></tbody>
+          </table>
+        </div>
+        <div style="display:grid;gap:12px">
+          <div class="rc-ban rc-prizes"><div><span>🏆 1st prize</span><span>$3,000</span></div><div><span>🏆 2nd prize</span><span>$2,000</span></div><div><span>🏆 3rd prize</span><span>$1,000</span></div><div class="rc-all"><span>🏁 Every branch that crosses its starting line<small style="display:block;font-size:12px;font-weight:400;color:#ffffff;margin-top:2px">+3 pallets over baseline</small></span><span>$500 credit</span></div></div>
+          <div class="rc-rules"><b>Contest Rules:</b><ul>
+            <li id="c-rule-base">Your baseline is your average monthly 3/16" GP APEX™ purchases, Jan–Sep 2025, in pallets.</li>
+            <li>Reach 3 pallets above baseline in November for 1 race point and a $500 credit on your next order. One race point for every pallet after that.</li>
+            <li>GP APEX™ new orders placed Nov. 1–30, 2026 count; must ship within 30 days. No GP APEX returns in the promo.</li>
+            <li><b>Purchased quantities count toward the contest only for 3/16" GP APEX™ white boards in 4x8 or 5x10 sizes.</b></li>
+            <li><b>Credits are applied after payment of the qualifying invoice.</b></li>
+            <li>Bonus prizes for end-use case studies (photo + write-up) submitted with a confirmed Sales Order.</li>
+          </ul></div>
+        </div>
+      </div>
+      <div class="rc-foot"><span>3A Composites · GP APEX™</span><span>Questions? Contact your 3A Composites sales representative.</span></div>
+    </article>
+  </section>
+</div>
+
+<script>// Racetrack renderer shared by the dashboard and the PDF generator.
+// rqTrack(cars, opts) -> SVG markup string.
+// cars: [{branch, label, rank, points, dist (pallets over baseline), me}]
+// opts: {labelTop, labelAll, prelaunch, title, subtitle, note}
+// One lap = the whole race: 0 at the start line (baseline), the first race point at +3 pallets, +1 point per pallet after.
+window.rqTrack = function rqTrack(cars, opts) {
+  opts = opts || {};
+  const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const VW = 1300, VH = 620, cx = 650, cy = 305, S = 240, R = 170, TW = 84;
+  const Ro = R + TW / 2, Ri = R - TW / 2;
+  const L = 4 * S + 2 * Math.PI * R;
+  const LANES = [-30, -10, 10, 30];
+  const pt = (d, off) => {
+    d = ((d % L) + L) % L; const r = R + off;
+    if (d < S) return [cx + d, cy + r, 0];
+    d -= S; if (d < Math.PI * R) { const a = d / R; return [cx + S + r * Math.sin(a), cy + r * Math.cos(a), a]; }
+    d -= Math.PI * R; if (d < 2 * S) return [cx + S - d, cy - r, Math.PI];
+    d -= 2 * S; if (d < Math.PI * R) { const a = d / R; return [cx - S - r * Math.sin(a), cy - r * Math.cos(a), Math.PI + a]; }
+    d -= Math.PI * R; return [cx - S + d, cy + r, 0];
+  };
+  // outward unit normal at distance d
+  const nrm = (d) => { const [x1, y1] = pt(d, 0), [x2, y2] = pt(d, 10); return [(x2 - x1) / 10, (y2 - y1) / 10]; };
+  const stad = (r, attrs) => `<rect x="${cx - S - r}" y="${cy - r}" width="${2 * S + 2 * r}" height="${2 * r}" rx="${r}" ${attrs}/>`;
+
+  let out = `<svg viewBox="0 0 ${VW} ${VH}" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Race standings track" font-family="Arial, Helvetica, sans-serif">`;
+  out += `<defs><pattern id="rqchk" width="12" height="12" patternUnits="userSpaceOnUse"><rect width="12" height="12" fill="#fff"/><rect width="6" height="6" fill="#111"/><rect x="6" y="6" width="6" height="6" fill="#111"/></pattern></defs>`;
+  // apron + asphalt + infield
+  out += stad(Ro + 10, 'fill="#d9dee3"');
+  out += stad(Ro, 'fill="#3b3f45"');
+  out += stad(Ri, 'fill="#6f9a5f"');
+  out += stad(Ri - 10, 'fill="none" stroke="#5f8a50" stroke-width="2"');
+  for (const off of [-20, 0, 20]) out += stad(R + off, 'fill="none" stroke="#ffffff" stroke-opacity=".35" stroke-width="1.5" stroke-dasharray="10 12"');
+  out += stad(Ro, 'fill="none" stroke="#ffffff" stroke-width="3"');
+  out += stad(Ri, 'fill="none" stroke="#ffffff" stroke-width="3"');
+  // scale: lap length in pallets over baseline
+  const maxD = Math.max(0, ...cars.map((c) => c.dist || 0));
+  const NICE = [10, 12, 15, 20, 25, 30, 40, 50, 75, 100];
+  const M = NICE.find((n) => n >= maxD * 1.12) || Math.ceil(maxD * 1.12 / 50) * 50;
+  const dOf = (pal) => (Math.max(0, Math.min(pal, M)) / M) * L * 0.97;
+  const step = M <= 15 ? 1 : M <= 30 ? 5 : 10;
+  for (let k = 0; k <= M; k += step) {
+    const d = dOf(k); const [x1, y1] = pt(d, -TW / 2); const [x2, y2] = pt(d, -TW / 2 - 9); const [tx, ty] = pt(d, -TW / 2 - 20);
+    out += `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="#ffffff" stroke-width="${k === 3 ? 3 : 1.5}"/>`;
+    if (k > 0 && k !== 3 && k < M) out += `<text x="${tx.toFixed(1)}" y="${(ty + 4).toFixed(1)}" text-anchor="middle" font-size="11" fill="#ffffff" fill-opacity=".9">+${k}</text>`;
+  }
+  // baseline / start line
+  out += `<rect x="${cx - 4}" y="${cy + Ri}" width="8" height="${TW}" fill="#ffffff"/>`;
+  out += `<text x="${cx}" y="${cy + Ri - 14}" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">START = baseline</text>`;
+  // scoring line at +3 pallets (checkered)
+  { const d = dOf(3); const [x, y, a] = pt(d, 0); const deg = a * 180 / Math.PI;
+    out += `<g transform="translate(${x.toFixed(1)},${y.toFixed(1)}) rotate(${(-deg).toFixed(1)})"><rect x="-7" y="${-TW / 2}" width="14" height="${TW}" fill="url(#rqchk)" stroke="#111" stroke-width="1"/></g>`;
+    const [tx, ty] = pt(d, -TW / 2 - 22);
+    out += `<text x="${tx.toFixed(1)}" y="${(ty + 4).toFixed(1)}" text-anchor="middle" font-size="12" font-weight="700" fill="#ffc000">+3 = 1st point + $500</text>`; }
+  { const [x, y] = pt(dOf(M * 0.06), 0); out += `<path d="M ${x - 20} ${y} l 40 0 m -8 -5 l 8 5 l -8 5" fill="none" stroke="#ffffff" stroke-opacity=".7" stroke-width="2"/>`; }
+  // infield text
+  if (opts.title) out += `<text x="${cx}" y="${cy - 30}" text-anchor="middle" font-size="34" font-weight="900" font-style="italic" fill="#ffffff">${esc(opts.title)}</text>`;
+  if (opts.subtitle) out += `<text x="${cx}" y="${cy + 6}" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">${esc(opts.subtitle)}</text>`;
+  if (opts.note) out += `<text x="${cx}" y="${cy + 30}" text-anchor="middle" font-size="13" fill="#eef5ea">${esc(opts.note)}</text>`;
+
+  // place cars
+  const sorted = [...cars].sort((a, b) => a.rank - b.rank);
+  const GAP = 24, lastD = LANES.map(() => -1e9);
+  const placed = [];
+  let gridIdx = 0;
+  for (const c of sorted) {
+    let d, lane;
+    if (opts.prelaunch || !(c.dist > 0)) {
+      // starting grid behind the line, two-by-two
+      lane = 1 + (gridIdx % 2); d = L - 22 - Math.floor(gridIdx / 2) * GAP; gridIdx++;
+      if (gridIdx > 2 * 14) { lane = gridIdx % 2 ? 0 : 3; d = L - 22 - Math.floor((gridIdx - 29) / 2) * GAP; }
+    } else {
+      d = dOf(c.dist);
+      // first lane with room behind this car, else the roomiest lane
+      const gaps = lastD.map((ld) => Math.abs(ld - d));
+      let best = gaps.findIndex((gp) => gp >= GAP);
+      if (best < 0) best = gaps.indexOf(Math.max(...gaps));
+      lane = best; lastD[lane] = d;
+    }
+    placed.push({ c, d, lane });
+  }
+  // labels: outside the track, nudged apart
+  const want = (c) => c.me || opts.labelAll || c.rank <= (opts.labelTop || 0);
+  const lab = placed.filter((p) => want(p.c)).sort((a, b) => a.d - b.d);
+  const used = [];
+  let carsSvg = '', labSvg = '';
+  for (const p of lab) {
+    const [x, y] = pt(p.d, LANES[p.lane]);
+    const [nx, ny] = nrm(p.d);
+    let k = 0, lx, ly;
+    do { [lx, ly] = pt(p.d, (Ro - R) + 20 + k * 15); k++; }
+    while (k < 7 && used.some((u) => Math.abs(u[0] - lx) < 130 && Math.abs(u[1] - ly) < 14));
+    used.push([lx, ly]);
+    const anchor = nx > 0.4 ? 'start' : nx < -0.4 ? 'end' : 'middle';
+    const txt = `${p.c.rank}. ${p.c.label}${p.c.points ? ' · ' + p.c.points + ' pt' + (p.c.points === 1 ? '' : 's') : ''}`;
+    labSvg += `<line x1="${x.toFixed(1)}" y1="${y.toFixed(1)}" x2="${lx.toFixed(1)}" y2="${(ly - 4).toFixed(1)}" stroke="${p.c.me ? '#215f9a' : '#7b8794'}" stroke-width="${p.c.me ? 1.6 : 0.8}"/>`;
+    labSvg += `<text x="${lx.toFixed(1)}" y="${(ly + (ny > 0.4 ? 8 : 0)).toFixed(1)}" text-anchor="${anchor}" font-size="${p.c.me ? 13 : 11.5}" font-weight="${p.c.me || p.c.rank <= 3 ? 700 : 400}" fill="${p.c.me ? '#215f9a' : '#1b2433'}" paint-order="stroke" stroke="#ffffff" stroke-width="3">${esc(txt)}</text>`;
+  }
+  for (const p of placed.sort((a, b) => (a.c.me ? 1 : 0) - (b.c.me ? 1 : 0) || b.c.rank - a.c.rank)) {
+    const [x, y] = pt(p.d, LANES[p.lane]);
+    const c = p.c;
+    const fill = c.me ? '#215f9a' : c.rank === 1 && c.points > 0 ? '#ffc000' : c.rank === 2 && c.points > 0 ? '#b9c0c7' : c.rank === 3 && c.points > 0 ? '#c9834f' : '#e8eef3';
+    const ink = c.me ? '#ffffff' : c.points > 0 && c.rank <= 3 ? '#111111' : '#156082';
+    const r = c.me ? 14 : 10;
+    carsSvg += `<g class="rq-car" data-branch="${esc(c.branch)}" transform="translate(${x.toFixed(1)},${y.toFixed(1)})">`;
+    if (c.me) carsSvg += `<circle r="20" fill="#215f9a" fill-opacity=".25"/>`;
+    carsSvg += `<circle r="${r}" fill="${fill}" stroke="${c.me ? '#ffffff' : '#156082'}" stroke-width="${c.me ? 3 : 1.5}"/>`;
+    carsSvg += `<text y="${c.me ? 4.5 : 3.8}" text-anchor="middle" font-size="${c.me ? 12 : 10}" font-weight="700" fill="${ink}">${c.rank}</text></g>`;
+  }
+  out += carsSvg + labSvg + '</svg>';
+  return out;
+};
+</script>
+<script>
+dash.calc('race', {
+  title: 'Race standings',
+  description: 'Each branch: Jan–Sep 2025 baseline (avg monthly 3/16" pallets), November 3/16" pallets, pallets over baseline, race points, and overall and region rank.',
+  inputs: ['baselines', 'november'],
+  fn: (baselines, november) => {
+    const MIN = 3, E = 1e-7;
+    const nov = {};
+    for (const r of november) nov[r.branch] = (nov[r.branch] ?? 0) + (Number(r.p316) || 0);
+    const rows = baselines.map((b) => {
+      const baseline = Number(b.baseline_316) || 0, novp = nov[b.branch] ?? 0, over = novp - baseline;
+      const points = over + E < MIN ? 0 : 1 + Math.floor(over - MIN + E);
+      const frac = points > 0 ? over - MIN - Math.floor(over - MIN + E) : 0;
+      const to_go = Math.max(0, baseline + MIN - novp);
+      return { branch: b.branch, region: b.region, eligible: 'Y', preset: 'Jan–Sep 2025 (flyer)', scope: '3/16" only', data: 'Live',
+        baseline, start_line: baseline + MIN, nov: novp, over, points, to_go, next_pt: points > 0 ? 1 - frac : to_go, key: b.branch };
+    });
+    rows.sort((x, y) => y.points - x.points || y.over - x.over || x.branch.localeCompare(y.branch));
+    const byRegion = {};
+    rows.forEach((r, i) => { r.rank = i + 1; r.of = rows.length; (byRegion[r.region] ??= []).push(r); });
+    for (const list of Object.values(byRegion)) list.forEach((r, i) => { r.region_rank = i + 1; r.region_of = list.length; });
+    return rows;
+  },
+});
+</script>
+<script>
+(() => {
+  const PRESETS = ['Jan–Sep 2025 (flyer)', 'Full year 2025', 'Q4 2025', 'H2 2025 (Jul–Dec)', 'Nov 2025 (same month last year)', 'Last 12 months (Oct 25–Sep 26)', '2026 YTD (Jan–Sep)'];
+  const CUST = { 'Jan–Sep 2025 (flyer)': 'Jan–Sep 2025', 'Full year 2025': 'Jan–Dec 2025', 'Q4 2025': 'Oct–Dec 2025', 'H2 2025 (Jul–Dec)': 'Jul–Dec 2025', 'Nov 2025 (same month last year)': 'November 2025', 'Last 12 months (Oct 25–Sep 26)': 'Oct 2025–Sep 2026', '2026 YTD (Jan–Sep)': 'Jan–Sep 2026' };
+  const SCOPES = ['3/16" only', 'All GP APEX'];
+  const DATAS = ['Live', 'Sample'];
+  const REGIONS = ['Northeast', 'Southeast', 'Central', 'West', 'Canada'];
+  const FIELDS = ['All branches', 'Top 10', ...REGIONS];
+  const DEF = { view: 'customer', field: 'All branches', branch: 'Charlotte, NC', preset: PRESETS[0], scope: SCOPES[0], data: 'Live' };
+  const P = () => ({ ...DEF, ...Object.fromEntries(Object.entries(dash.params()).filter(([k, v]) => v != null && v !== '' && (k === 'field' || k === 'branch'))) });
+  const $ = (id) => document.getElementById(id);
+  const enc = (s) => String(s).replace(/%/g, '%25').replace(/&/g, '%26').replace(/=/g, '%3D');
+  const f2 = d3.format(',.2f'), f0 = d3.format(','), usd = d3.format('$,.0f');
+  const short = (b) => b.replace(/, [A-Z]{2}$/, '');
+  const mark = (el, key, src = 'race') => { el.setAttribute('data-source', src); el.setAttribute('data-where', 'key=' + enc(key)); };
+  const set = (id, text, key, src) => { const el = $(id); el.textContent = text; el.classList.remove('dash-skeleton'); if (key) mark(el, key, src); };
+  const fill = (sel, opts, val, labels) => { if (sel.options.length !== opts.length) sel.replaceChildren(...opts.map((o, i) => new Option(labels ? labels[i] : o, o))); sel.value = val; };
+
+  [['sel-field', 'field'], ['sel-branch', 'branch']].forEach(([id, k]) => $(id).addEventListener('change', (e) => dash.setParams({ [k]: e.target.value })));
+
+  let byBranch = new Map();
+  const tip = document.createElement('div'); tip.className = 'rt-tip'; tip.hidden = true;
+  function hookTips(box) {
+    box.append(tip);
+    box.onmousemove = (ev) => {
+      const g = ev.target.closest('.rq-car'); if (!g) { tip.hidden = true; return; }
+      const r = byBranch.get(g.dataset.branch); if (!r) return;
+      tip.replaceChildren();
+      const a = document.createElement('div'); a.className = 'd'; a.textContent = `#${r.rank} · ${r.region}`;
+      const b = document.createElement('div'); b.textContent = r.branch;
+      const c = document.createElement('div'); c.textContent = `${f2(r.nov)} Nov pallets · ${r.over >= 0 ? '+' : ''}${f2(r.over)} vs baseline · ${r.points} pts`;
+      tip.append(a, b, c); tip.hidden = false;
+      const bb = box.getBoundingClientRect(); const x = ev.clientX - bb.left + box.scrollLeft, y = ev.clientY - bb.top;
+      tip.style.left = Math.min(x + 12, box.scrollWidth - tip.offsetWidth - 4) + 'px'; tip.style.top = Math.max(0, y - 60) + 'px';
+    };
+    box.onmouseleave = () => { tip.hidden = true; };
+  }
+  function drawTrack(el, rows, me, started, leadText) {
+    const cars = rows.map((r) => ({ branch: r.branch, label: short(r.branch), rank: r.rank, points: r.points, dist: Math.max(0, r.over), me: r.branch === me }));
+    el.innerHTML = window.rqTrack(cars, { labelTop: started ? 10 : 0, labelAll: started && rows.length <= 14, prelaunch: !started,
+      title: 'Race to the Queen City', subtitle: started ? leadText : 'Green flag drops Nov 1', note: started ? 'Distance = 3/16" pallets over baseline' : 'Every branch starts at its own baseline' });
+    hookTips(el.parentElement);
+  }
+
+  function draw() {
+    const p = P();
+    const S = dash.data('race'), B = dash.data('baselines');
+    const internal = p.view !== 'customer';
+    
+    fill($('sel-field'), FIELDS, p.field);
+    if (B.status === 'ok') fill($('sel-branch'), B.data.map((r) => r.branch), p.branch);
+    if (S.status !== 'ok') { if (S.status === 'error' || B.status === 'error') $('takeaway').textContent = 'Some data failed to load.'; return; }
+
+    const all = S.data.filter((r) => r.preset === p.preset && r.scope === p.scope && r.data === p.data && r.eligible === 'Y').sort((a, b) => a.rank - b.rank);
+    byBranch = new Map(all.map((r) => [r.branch, r]));
+    const me = byBranch.get(p.branch) || all[0];
+    const inField = (r) => p.field === 'All branches' ? true : p.field === 'Top 10' ? r.rank <= 10 || r.branch === me.branch : r.region === p.field;
+    const field = all.filter(inField);
+    const started = all.some((r) => r.nov > 0);
+    const lead = field[0];
+    const leadText = lead && lead.points > 0 ? `Leader: ${lead.branch} · ${lead.points} pts` : 'No branch has scored yet';
+    const comboKey = [p.preset, p.scope, p.data].join('|');
+
+    // takeaway
+    const tk = $('takeaway'); tk.replaceChildren();
+    const b = (t, k, f, src = 'race') => { const s = document.createElement('b'); s.textContent = t; s.setAttribute('data-field', f); mark(s, k, src); return s; };
+    if (!started) tk.append(`${all.length} Polymershapes branches are on the grid. The race starts Nov 1; each branch starts from its own Jan–Sep 2025 baseline. Pick your branch above to see where you stand.`);
+    else if (lead) tk.append(b(lead.branch, lead.key, 'branch'), ' leads ' + (p.field === 'All branches' || p.field === 'Top 10' ? 'the race' : p.field) + ' with ', b(f0(lead.points), lead.key, 'points'), ' race points.');
+
+    // internal
+    // customer
+    if (!internal) {
+      const k = me.key;
+      $('c-branch').textContent = me.branch;
+      $('c-field').textContent = (p.field === 'All branches' ? 'All branches' : p.field === 'Top 10' ? 'Top 10' : p.field + ' region') + '';
+      const st = $('c-status'); st.replaceChildren();
+      if (!started) st.append('Your starting line is ', b(f2(me.start_line), k, 'start_line'), ' pallets of 3/16" GP APEX™ in November. Cross it to earn your first race point and a $500 credit on your next order.');
+      else if (me.points > 0) st.append("You're on the board in position ", '#', b(f0(me.rank), k, 'rank'), ' with ', b(f0(me.points), k, 'points'), ` race point${me.points === 1 ? '' : 's'}.` + (me.prize > 0 ? " You're in a prize position!" : ''));
+      else st.append('Order ', b(f2(me.to_go), k, 'to_go'), ' more pallets of 3/16" GP APEX™ in November to start scoring and earn your $500 credit on your next order.');
+      drawTrack($('c-track'), field, me.branch, started, leadText);
+      set('c-rank', started ? f0(me.rank) : '–', k); $('c-hash').hidden = !started; $('c-rank-n').textContent = started ? `of ${me.of} branches` : 'Standings start Nov 1';
+      set('c-pts', f0(me.points), k); set('c-next', f2(me.next_pt), k); $('c-next-n').textContent = me.points > 0 ? 'to add another race point' : 'to reach the first race point';
+      $('c-rule-base').textContent = `Your baseline is your average monthly 3/16" GP APEX™ purchases, ${CUST[p.preset]}, in pallets.`;
+      const top = field.slice(0, 10); if (!top.includes(me) && field.includes(me)) top.push(me);
+      $('c-top-title').textContent = p.field === 'All branches' || p.field === 'Top 10' ? 'Top 10 standings' : `Top 10 in ${p.field}`;
+      const tb = $('c-top').querySelector('tbody'); tb.replaceChildren();
+      for (const r of top) {
+        const tr = document.createElement('tr'); tr.dataset.key = r.key; if (r === me) tr.className = 'on';
+        for (const [v, cls] of [[started ? f0(r.rank) : '–'], [r.branch, 'l'], [(r.over >= 0 ? '+' : '') + f2(r.over)], [f0(r.points)]]) { const td = document.createElement('td'); td.textContent = v; if (cls) td.className = cls; tr.append(td); }
+        tb.append(tr);
+      }
+    }
+  }
+  dash.onData(draw);
+})();
+</script>
+</div><script>(() => { document.getElementById("print-btn").addEventListener("click", () => { dash.fns.forEach((f) => f()); window.print(); }); dash.fns.forEach((f) => f()); let t; window.addEventListener("resize", () => { clearTimeout(t); t = setTimeout(() => dash.fns.forEach((f) => f()), 150); }); })();</script></body></html>
